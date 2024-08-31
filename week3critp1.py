@@ -1,6 +1,6 @@
 '''
 Name: Kori Caldarone
-Assignment: Week 1 Critical Thinking
+Assignment: Week 3 Critical Thinking
 Professor: Professor Schwartz
 Date: 8/23/2024
 '''

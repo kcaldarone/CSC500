@@ -12,7 +12,7 @@ while isAlarmRinging == False:
     hourCount = hourCount + 1
     currentHour = currentHour + 1
     if hourCount == 50:
-        print("The alarm has rung! It has been " + str(hourCount) + " hours and it is now " + str(currentHour) + ":00.")
+        print("The alarm has rung! It has been " + str(hourCount) + " hours since the alarm was set and it is now " + str(currentHour) + ":00.")
         isAlarmRinging = True
     else:
         if currentHour == 24:
