@@ -98,16 +98,16 @@ def get_cost_of_cart():
 
 def print_total(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date)
-    print("test")
-    print("r of Items: " + str(get_num_items_in_cart()))
-    print(cart_items[0].item_description)
-    print_item_cost(cart.cart_items[0])
+    print("Number of Items: " + str(get_num_items_in_cart()))
+    for i in cart.cart_items:
+        print_item_cost(i)
+        print("test")
     get_cost_of_cart() #reaches
 
 def print_descriptions(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date + "\nItem Descriptions")
     for i in cart.cart_items:
-        print(cart.cart_items[i].item_name + ": " + cart.cart_items[i].item_description + "\n")
+        print(i.item_name + ": " + i.item_description + "\n")
 
 #Part 5 - Menu
 def print_menu(cart):
@@ -126,7 +126,7 @@ def print_menu(cart):
         elif action == "i":
             print_descriptions(cart)  #doesn't work, working on it :(
         elif action == "o":
-            output_cart(cart) #works! :D
+            output_cart(cart) #doesn't work, working on it :(
         else:
             print("This is not a valid option, please try again.\n") #works! :D
 
@@ -138,4 +138,6 @@ def output_cart(cart):
 def main():
     cart = ShoppingCart(input("Before we begin your shopping experience here at the Stardust Superstore, what is your name?\n"),input("And what is the current date?\n"),[])
     print_menu(cart)  
+    apple = ItemToPurchase("Apple",3,1,"apple")
+    print_item_cost(apple)
 main()
