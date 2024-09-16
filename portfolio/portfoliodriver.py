@@ -17,8 +17,8 @@ item_name = "None"
 item_price = 0
 item_quantity = 0
 #creating the method
-def print_item_cost(item):
-    print(str(item.item_name) + " " + str(item.item_quantity) + " @ $" + str(item.item_price) + " = $" + str(item.item_quantity * item.item_price) + "\n")
+def print_item_cost(item): #doesn't print for some reason
+    print(item.item_name + " " + str(item.item_quantity) + " @ $" + str(item.item_price) + " = $" + str(item.item_quantity * item.item_price) + "\n")
 
 #Part 2
 #making Item 1 and Item 2
@@ -138,6 +138,6 @@ def output_cart(cart):
 def main():
     cart = ShoppingCart(input("Before we begin your shopping experience here at the Stardust Superstore, what is your name?\n"),input("And what is the current date?\n"),[])
     print_menu(cart)  
-    apple = ItemToPurchase("Apple",3,1,"apple")
-    print_item_cost(apple)
+    #apple = ItemToPurchase("Apple",3,1,"apple") #was testing
+    #print_item_cost(apple)
 main()
