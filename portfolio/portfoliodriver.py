@@ -57,8 +57,8 @@ cart_items = []
 def create_item(): #added this so the customer can describe the item they want
     return ItemToPurchase(str(input("Enter the item name: \n")), int(input("Enter the item price: \n")), int(input("Enter the item quantity:\n")), str(input("Enter the item description:\n")))
 
-def add_item(item):
-     cart_items.append(item)
+def add_item(item, cart):
+     cart.cart_items.append(item)
      print(item.item_name + " has been added to the cart!")
 
 def remove_item(item_name):
@@ -84,25 +84,24 @@ def modify_item(item_name):
     if matchCount < 1:
         print("This item is not in this cart. Nothing modified")
 
-def get_num_items_in_cart():
+def get_num_items_in_cart(cart):
     count = 0
-    for i in cart_items:
+    for i in cart.cart_items:
         count = count + i.item_quantity
     return count
 
-def get_cost_of_cart():
+def get_cost_of_cart(cart):
     totalAmt = 0
-    for i in cart_items:
+    for i in cart.cart_items:
         totalAmt = totalAmt + (i.item_price * i.item_quantity)
-    print("Total: $" + str(totalAmt))
+    return totalAmt
 
 def print_total(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date)
-    print("Number of Items: " + str(get_num_items_in_cart()))
+    print("Number of Items: " + str(get_num_items_in_cart(cart)))
     for i in cart.cart_items:
-        print_item_cost(i)
-        print("test")
-    get_cost_of_cart() #reaches
+        print_item_cost(i)  # Check if the function is being called with the correct data
+    print("Total: $" + str(get_cost_of_cart(cart)))
 
 def print_descriptions(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date + "\nItem Descriptions")
@@ -118,7 +117,7 @@ def print_menu(cart):
             print("Have a nice day!") #works! :D
             hasNotQuit = False
         elif action == "a":
-            add_item(create_item()) #works! :D
+            add_item(create_item(), cart) #works! :D
         elif action == "r":
             remove_item(input("What item would you like to remove?\n")) #works! :D
         elif action == "c":
@@ -138,6 +137,4 @@ def output_cart(cart):
 def main():
     cart = ShoppingCart(input("Before we begin your shopping experience here at the Stardust Superstore, what is your name?\n"),input("And what is the current date?\n"),[])
     print_menu(cart)  
-    #apple = ItemToPurchase("Apple",3,1,"apple") #was testing
-    #print_item_cost(apple)
 main()
