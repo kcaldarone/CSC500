@@ -18,7 +18,7 @@ item_price = 0
 item_quantity = 0
 #creating the method
 def print_item_cost(item): #doesn't print for some reason
-    print(item.item_name + " " + str(item.item_quantity) + " @ $" + str(item.item_price) + " = $" + str(item.item_quantity * item.item_price) + "\n")
+    print(item.item_name + " " + str(item.item_quantity) + " @ $" + str(item.item_price) + " = $" + str(item.item_quantity * item.item_price))
 
 #Part 2
 #making Item 1 and Item 2
@@ -61,19 +61,19 @@ def add_item(item, cart):
      cart.cart_items.append(item)
      print(item.item_name + " has been added to the cart!")
 
-def remove_item(item_name):
+def remove_item(item_name, cart):
       matchCount = 0
-      for item in cart_items:
+      for item in cart.cart_items:
         if item.item_name == item_name:
-            cart_items.remove(item)
+            cart.cart_items.remove(item)
             matchCount = matchCount + 1
             print("We have removed " + item_name + " from your cart!")
       if matchCount < 1:
           print("Item not found in list. Nothing removed.")
 
-def modify_item(item_name):
+def modify_item(item_name, cart):
     matchCount = 0
-    for item in cart_items:
+    for item in cart.cart_items:
         if item_name == item.item_name:
             if item.item_price == 0 and item.item_quantity == 0:
               print("This item is the base, can not be modified")
@@ -100,13 +100,13 @@ def print_total(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date)
     print("Number of Items: " + str(get_num_items_in_cart(cart)))
     for i in cart.cart_items:
-        print_item_cost(i)  # Check if the function is being called with the correct data
+        print_item_cost(i)
     print("Total: $" + str(get_cost_of_cart(cart)))
 
 def print_descriptions(cart):
     print(cart.customer_name + "'s Shopping Cart - " + cart.current_date + "\nItem Descriptions")
     for i in cart.cart_items:
-        print(i.item_name + ": " + i.item_description + "\n")
+        print(i.item_name + ": " + i.item_description)
 
 #Part 5 - Menu
 def print_menu(cart):
@@ -119,13 +119,13 @@ def print_menu(cart):
         elif action == "a":
             add_item(create_item(), cart) #works! :D
         elif action == "r":
-            remove_item(input("What item would you like to remove?\n")) #works! :D
+            remove_item(input("What item would you like to remove?\n"), cart) #works! :D
         elif action == "c":
-            modify_item(input("What item would you like to modify?\n")) #works! :D
+            modify_item(input("What item would you like to modify?\n"), cart) #works! :D
         elif action == "i":
-            print_descriptions(cart)  #doesn't work, working on it :(
+            print_descriptions(cart)  #works :D
         elif action == "o":
-            output_cart(cart) #doesn't work, working on it :(
+            output_cart(cart) #works :D
         else:
             print("This is not a valid option, please try again.\n") #works! :D
 
