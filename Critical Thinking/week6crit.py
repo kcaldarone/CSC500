@@ -1,3 +1,9 @@
+'''
+Name: Kori Caldarone
+Assignment: Week 6 Critical Thinking
+Professor: Professor Schwartz
+Date: 9/23/2024
+'''
 
 course_number = input("Enter a course number:\n")
 
@@ -17,24 +23,9 @@ def print_dicts():
         meeting_dict[course_numbers[i]] = meeting_times[i]
         if course_number == course_numbers[i]:
             print("Course Number: " + course_numbers[i])
-            print("Room Number: " + str(room_numbers[i]))
-            print("Instructor Name: Professor " + instructors[i])
-            print("Meeting Time: " + meeting_times[i])
+            print("Room Number: " + str(room_dict[course_number]))
+            print("Instructor Name: Professor " + instructor_dict[course_number])
+            print("Meeting Time: " + meeting_dict[course_number])
         i = i + 1
         
 print_dicts()
-'''
-course_number = input("Enter a course number:\n")
-
-room_dict = {"CSC101": 3004, "CSC102": 4501, "CSC103": 6755, "NET110": 1244, "COM241": 1411}
-instructor_dict = {"CSC101": "Haynes", "CSC102": "Alvarado", "CSC103": "Rich", "NET110": "Burke", "COM241": "Lee"}
-meeting_dict = {"CSC101": "8:00 am", "CSC102": "9:00 am", "CSC103": "Rich", "NET110": "Burke", "COM241": "Lee"}
-
-for i, j in room_dict:
-    if i == course_number:
-        print("Course Number: " + i)
-        print("Room Number: " + str(j))
-        #print instructor
-        #print meeting time
-
-'''
