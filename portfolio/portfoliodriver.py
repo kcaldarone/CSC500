@@ -1,9 +1,11 @@
 '''
 Name: Kori Caldarone
-Assignment: Week 4 Portfolio Milestone
+Assignment: Week 8 Portfolio Project
 Professor: Professor Schwartz
-Date: 9/3/2024
+Date: 9/25/2024
 '''
+
+
 #Part 1
 #making the class
 class ItemToPurchase:
@@ -17,7 +19,7 @@ item_name = "None"
 item_price = 0
 item_quantity = 0
 #creating the method
-def print_item_cost(item): #doesn't print for some reason
+def print_item_cost(item): #works now!
     print(item.item_name + " " + str(item.item_quantity) + " @ $" + str(item.item_price) + " = $" + str(item.item_quantity * item.item_price))
 
 #Part 2
@@ -35,13 +37,8 @@ print_item_cost(Item2)
 #adding totals together and printing it
 print("Total: $" + str((Item1.item_price*Item1.item_quantity) + (Item2.item_price*Item2.item_quantity)))
 '''
+
 #WEEK 6 CHECK IN!
-'''
-Name: Kori Caldarone
-Assignment: Week 6 Portfolio Milestone
-Professor: Professor Schwartz
-Date: 9/16/2024
-'''
 #Part 4
 class ShoppingCart:
     def __init__(self,customer_name,current_date,cart_items):
@@ -114,18 +111,22 @@ def print_menu(cart):
     while hasNotQuit:
         action = input("MENU\n\nWelcome to the Stardust Superstore. How can I help you today?\na - Add item to cart\nr - Remove item from cart\nc - Change item quantity\ni - Output items descriptions\no - Output shopping cart\nq - Quit\n")
         if action == "q":
-            print("Have a nice day!") #works! :D
+            print("QUITTING PROGRAM...")
+            print("Quitting complete! Have a nice day!")
             hasNotQuit = False
         elif action == "a":
-            add_item(create_item(), cart) #works! :D
+            print("ADD ITEM TO CART")
+            add_item(create_item(), cart) #Part 8
         elif action == "r":
-            remove_item(input("What item would you like to remove?\n"), cart) #works! :D
+            print("REMOVE ITEM FROM CART")
+            remove_item(input("What item would you like to remove?\n"), cart) #Part 9
         elif action == "c":
-            modify_item(input("What item would you like to modify?\n"), cart) #works! :D
+            print("CHANGE ITEM QUANTITY")
+            modify_item(input("What item would you like to modify?\n"), cart) #Part 10
         elif action == "i":
-            print_descriptions(cart)  #works :D
+            print_descriptions(cart)
         elif action == "o":
-            output_cart(cart) #works :D
+            output_cart(cart)
         else:
             print("This is not a valid option, please try again.\n") #works! :D
 
@@ -135,6 +136,6 @@ def output_cart(cart):
     print_total(cart)
 
 def main():
-    cart = ShoppingCart(input("Before we begin your shopping experience here at the Stardust Superstore, what is your name?\n"),input("And what is the current date?\n"),[])
+    cart = ShoppingCart(input("Before we begin your shopping experience here at the Stardust Superstore, what is your name?\n"),input("And what is the current date?\n"),[]) #Part 7
     print_menu(cart)  
 main()
